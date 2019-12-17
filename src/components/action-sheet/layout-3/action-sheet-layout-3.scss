@@ -1,0 +1,68 @@
+/*  Action Sheet - With Text Header
+================================================*/
+action-sheet-layout-3 {
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+  }
+
+  .label-ios,
+  .label-md {
+    margin: 0 !important;
+    padding-right: 15px;
+  }
+
+  .toolbar-ios {
+    min-height: 64px;
+  }
+
+  .bar-button-default-ios,
+  .toolbar-title-ios {
+    padding-top: 20px;
+  }
+
+  ion-card {
+    position: relative;
+    height: 200px;
+    border-radius: $border-radius !important;
+    margin-bottom: 20px !important;
+    box-shadow: none !important;
+
+    &:before {
+      content: "";
+      @include gradient-secondary;
+      position: absolute;
+      height: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    img {
+      height: 200px;
+    }
+  }
+  // New Category
+  [new-category] {
+    display: block;
+    font-size: $h6-font-size;
+    font-weight: 400 !important;
+    color: theme-colors('textColors', 'secondary') !important;
+  }
+
+  [card-title] {
+    color: color($googleCard, card-title-secondary-basic);
+  }
+  // Card Subtitle
+  [card-subtitle] {
+    color: color($googleCard, card-description-basic);
+  }
+
+  [button-action-shit] {
+    color: color($buttonActionShit, color-primary) !important;
+  }
+    ion-badge {
+      display: block;
+      margin: 0 5px 15px;
+      clear: both;
+    }
+}

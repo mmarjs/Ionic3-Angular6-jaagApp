@@ -1,0 +1,109 @@
+/*  Theme Action Sheet - Basic
+===========================================*/
+action-sheet-layout-1 {
+  @include settingAnimationHeader;
+
+  #elastic-header {
+    position: relative;
+    z-index: 9;
+  }
+
+  .scroll-content {
+    top: -56px;
+  }
+
+  .toolbar-ios {
+    min-height: 64px;
+  }
+
+  .bar-button-default-ios,
+  .toolbar-title-ios {
+    padding-top: 20px;
+  }
+
+  .content-ios .scroll-content {
+    top: -64px !important;
+  }
+
+  .active .back-button,
+  .active .toolbar-title {
+    color: theme-colors('textColors', 'accent') !important;
+    animation-name: color-change;
+    animation-duration: 400ms;
+    display: block !important;
+  }
+
+  .back-button,
+  .toolbar-title {
+    color: theme-colors('textColors', 'primary') !important;
+  }
+  // Content
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+
+    [small-description] {
+      margin-bottom: 16px;
+
+      &::before {
+        content: "";
+        width: 200px;
+        height: 5px;
+        background: theme-colors('mainColors', 'secondaryBase');
+        position: absolute;
+        bottom: 15px;
+        left: 16px;
+        border-radius: 5px;
+        z-index: 1;
+      }
+    }
+    // Settings Big Image
+    [background-size] {
+      height: 300px;
+      position: relative;
+
+      &:before {
+        content: "";
+        @include gradient-secondary;
+        position: absolute;
+        height: 50%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      ion-item {
+        padding: 0 8px 0 16px !important;
+      }
+
+      [title-block] {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0;
+      }
+    }
+    // Settings Button Action Shit
+    [button-action-shit] {
+      margin-top: 30px;
+      color: color($buttonActionShit, color-secondary) !important;
+    }
+    // Settings Parallax Title
+    [parallax-title] {
+      margin-top: 10px;
+      color: color($parallaxPage, parallax-title-product) !important;
+    }
+    // Settings Parallax Subtitle
+    [parallax-subtitle] {
+      color: color($parallaxPage, parallax-subtitle-product) !important;
+    }
+    // Settings Parallax Description
+    [parallax-description] {
+      color: color($parallaxPage, parallax-description-basic) !important;
+    }
+    // Settings Badge
+    [badge-clear] {
+      color: theme-colors('textColors', 'primary') !important;
+    }
+  }
+}

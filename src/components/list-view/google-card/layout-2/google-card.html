@@ -1,0 +1,35 @@
+<!--Theme Google Card - Styled cards 2-->
+<ion-content padding-top>
+  <ion-grid no-padding>
+    <ion-row *ngIf="data != null">
+      <ion-col col-12 col-md-6 col-lg-4 *ngFor="let item of data.items;let i = index">
+        <ion-card box-shadow text-left margin-bottom>
+          <!--Card Image-->
+          <div card-image>
+            <img [src]="item.image" />
+            <div title-block>
+              <!--Card Title-->
+              <h2 card-title text-capitalize>{{item.title}}</h2>
+            </div>
+          </div>
+          <!--Card descriptiom-->
+          <ion-card-content (click)="onEvent('onItemClick', item, $event)">
+            <ion-card-title margin-bottom no-padding>
+              <ion-item transparent no-padding>
+                <h1 card-subtitle item-start>{{item.subtitle}}</h1>
+                <button no-margin item-end ion-button button-action-shit (click)="onEvent('onShare', item, $event)">
+                  <ion-icon [name]="item.shareIcon"></ion-icon>
+                </button>
+              </ion-item>
+              <!--Card Body Text-->
+              <p card-body-text>{{item.description}}</p>
+              <span span-small>{{item.priceText}}</span>
+              <ion-badge badge-clear float-left no-padding>{{item.price}}</ion-badge>
+            </ion-card-title>
+            <button box-shadow block default-button ion-button (click)="onEvent('onItemClick', item, $event)">{{item.button}}</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

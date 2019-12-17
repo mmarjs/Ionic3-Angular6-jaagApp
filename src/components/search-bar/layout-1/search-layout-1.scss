@@ -1,0 +1,57 @@
+/*  #Style Search - Simple
+===========================================*/
+
+search-bar-layout-1 {
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+
+    ion-card {
+      position: relative;
+      height: 200px;
+      border-radius: $border-radius !important;
+      margin-bottom: 20px !important;
+      box-shadow: none !important;
+
+      &:before {
+        content: "";
+        @include gradient-primary;
+        position: absolute;
+        height: 50%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      // Card Title
+      [card-title] {
+        color: color($googleCard, card-title-secondary-basic);
+        line-height: 27px;
+      }
+      // Card Subtitle
+      [card-subtitle] {
+        color: color($googleCard, card-description-secondary-basic);
+      }
+
+      img {
+        height: 200px;
+      }
+
+      [title-block] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        padding: 10px;
+      }
+      // New Category
+      [new-category] {
+        text-align: center;
+        font-size: $h1-font-size !important;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+      }
+    }
+  }
+}

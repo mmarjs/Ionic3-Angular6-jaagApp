@@ -1,0 +1,22 @@
+<!--Check Boxes component-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>{{params.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<!--Content-->
+
+<!--PAGE CHECK BOX - Simple-->
+<alert-layout-1 has-header *ngIf="params.alertLayout1" [data]="params.data | async" [events]="params.events">
+</alert-layout-1>
+
+<!--PAGE CHECK BOX - With Avatar-->
+<alert-layout-2 has-header *ngIf="params.alertLayout2" [data]="params.data | async" [events]="params.events">
+</alert-layout-2>
+
+<!--PAGE CHECK BOX - With Details-->
+<alert-layout-3 has-header *ngIf="params.alertLayout3" [data]="params.data | async" [events]="params.events">
+</alert-layout-3>

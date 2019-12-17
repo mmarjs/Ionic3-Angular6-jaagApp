@@ -1,0 +1,25 @@
+<!--Fist Screen-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="icon-menu" name="menu"></ion-icon>
+    </button>
+<!--    <ion-title>Javed Ahmad Ghamidi</ion-title>-->
+  </ion-navbar>
+</ion-header>
+<!--Fist Screen Content-->
+<ion-content>
+  <div *ngIf="data != null && data.background != null" background-size default-background [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+    <!--<div class="ionic-description" text-center>
+      <h2 item-title>{{data.title}}</h2>
+      <h2 item-title>{{data.subtitle}}</h2>
+      <p item-subtitle>{{data.subtitle2}}</p>
+    </div>
+    <a [href]="data.link">
+      {{data.description}}
+    </a>
+    PAGE GOOGLE CARDS - Styled cards-->
+  </div>
+</ion-content>
+<google-card-layout-3 has-header *ngIf="params.homeCardsLayout3" [data]="params.data | async" [events]="params.events">
+</google-card-layout-3>

@@ -1,0 +1,48 @@
+<!--Select bar components-->
+<ion-header box-shadow>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <div *ngIf="params != null">
+            <ion-title>{{params.title}}</ion-title>
+        </div>
+    </ion-navbar>
+</ion-header>
+<!-- Content -->
+<ion-content padding-top *ngIf="params.data != null">
+    <div *ngIf="params.selectLayout1">
+        <!--- Select - Basic dialog -->
+        <ion-list *ngIf="params.data.layout1 != null">
+            <ion-item-divider text-uppercase no-lines>{{params.data.layout1.header}}</ion-item-divider>
+            <select-layout-1 [data]="params.data.layout1" [events]="params.events"></select-layout-1>
+        </ion-list>
+        <!--- Select - One touch dialog -->
+        <ion-list *ngIf="params.data.layout2 != null">
+            <ion-item-divider text-uppercase no-lines>{{params.data.layout2.header}}</ion-item-divider>
+            <select-layout-2 [data]="params.data.layout2" [events]="params.events"></select-layout-2>
+        </ion-list>
+        <!--- Select - With Action sheet -->
+        <ion-list *ngIf="params.data.layout3 != null">
+            <ion-item-divider text-uppercase no-lines>{{params.data.layout3.header}}</ion-item-divider>
+            <select-layout-3 [data]="params.data.layout3" [events]="params.events"></select-layout-3>
+        </ion-list>
+        <!--- Select - Two option select -->
+        <ion-list *ngIf="params.data.layout4 != null">
+            <ion-item-divider text-uppercase no-lines>{{params.data.layout4.header}}</ion-item-divider>
+            <select-layout-4 [data]="params.data.layout4" [events]="params.events"></select-layout-4>
+        </ion-list>
+    </div>
+    <div *ngIf="params.selectLayout2">
+      <!--- Multi-Select - One touch dialog -->
+        <ion-list *ngIf="params.data.layout5 != null">
+            <ion-item-divider text-uppercase no-lines>{{params.data.layout5.header}}</ion-item-divider>
+            <select-layout-5 [data]="params.data.layout5" [events]="params.events"></select-layout-5>
+        </ion-list>
+        <!--- Multi-Select - Two option select -->
+        <ion-list *ngIf="params.data.layout6 != null">
+            <ion-item-divider text-uppercase no-lines>{{params.data.layout6.header}}</ion-item-divider>
+            <select-layout-6 [data]="params.data.layout6" [events]="params.events"></select-layout-6>
+        </ion-list>
+    </div>
+</ion-content>

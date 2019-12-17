@@ -1,0 +1,77 @@
+/*  #Style Google Card - Styled cards 2
+================================================*/
+
+google-card-layout-2 {
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+    // Settings Card
+    ion-card {
+      background: theme-colors('mainColors', 'primary') !important;
+      box-shadow: none !important;
+      border-radius: $border-radius !important;
+
+      [card-image] {
+        position: relative;
+
+        &:before {
+          content: "";
+          @include gradient-primary;
+          position: absolute;
+          height: 50%;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        [title-block] {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          padding: 10px 15px;
+        }
+      }
+
+      [card-title] {
+        font-weight: 600 !important;
+        white-space: nowrap !important;
+        color: color($googleCard, card-title-basic) !important;
+      }
+
+      ion-card-content {
+        overflow: hidden;
+
+        [default-button] {
+          font-size: $h5-font-size !important;
+        }
+
+        ion-card-title {
+          overflow: hidden;
+          // Card Description
+          [card-subtitle] {
+            font-size: $h1-font-size !important;
+            font-weight: 500 !important;
+            margin-bottom: 20px !important;
+            white-space: nowrap !important;
+            color: color($googleCard, card-subtitle-basic) !important;
+          }
+
+          [card-body-text] {
+            color: color($googleCard, card-description-basic) !important;
+            margin-bottom: 30px;
+          }
+
+          [button-action-shit] {
+            color: color($buttonActionShit, color-primary) !important;
+          }
+
+          [span-small] {
+            margin-bottom: 5px;
+            display: block;
+            color: theme-colors('textColors', 'secondaryDark');
+          }
+        }
+      }
+    }
+  }
+}

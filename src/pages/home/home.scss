@@ -1,0 +1,35 @@
+/*  #Style First Screen (Home)
+================================================*/
+page-home {
+  [default-background] {
+    height: 100%;
+    width: 100%;
+    display: table;
+
+    .ionic-description {
+      display: table-cell;
+      vertical-align: middle;
+      z-index: 9999;
+      position: relative;
+
+      h2[item-title] {
+        margin: 0;
+        font-weight: bold !important;
+      }
+    }
+
+    a {
+      color: theme-colors('textColors', 'accent') !important;
+      text-decoration: underline;
+      visibility: visible !important;
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+      z-index: 9999;
+    }
+  }
+  .toolbar-title-md {
+    font-size: 22px !important;
+  }
+}

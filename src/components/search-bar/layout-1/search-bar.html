@@ -1,0 +1,38 @@
+<!-- Theme Search - Simple -->
+<ion-header box-shadow>
+  <ion-navbar box-shadow margin-bottom>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title *ngIf="data != null">{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar padding-horizontal padding-bottom>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onEvent('onTextChange', $event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row *ngIf="data != null">
+      <ion-col col-12 col-lg-6 col-xl-4 *ngFor="let item of data.items;let i = index">
+        <!--Header Styled cards-->
+        <ion-item padding-top no-lines>
+          <!-- Card Title -->
+          <h2 card-title>{{item.title}}</h2>
+          <!-- Card Badge -->
+          <ion-badge box-shadow  item-end badge-light>{{item.button}}</ion-badge>
+        </ion-item>
+        <!-- End Header Styled Cards-->
+        <!-- Card Background -->
+        <ion-card box-shadow (click)="onEvent('onItemClick', item.subtitle, $event)">
+          <img [src]="item.image" />
+          <div text-center title-block>
+            <!-- Card Subtitle -->
+            <h3 card-subtitle>{{item.subtitle}}</h3>
+          </div>
+          <span new-category padding-bottom text-uppercase>{{item.category}}</span>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

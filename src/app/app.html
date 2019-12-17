@@ -1,0 +1,26 @@
+<!---Settings Main Header-->
+<ion-split-pane when="md">
+  <!-- Menu Main Top -->
+  <ion-menu id="mySideMenu" [content]="content" *ngIf="params != null">
+    <!-- Menu Main List -->
+    <ion-content>
+      <div header-background-image padding [ngStyle]="{'background-image': 'url(' + params.background + ')'}">
+        <img [src]="params.image">
+        <h2 ion-text color="light" header-title>{{params.title}}</h2>
+        <!--<a (click)="PopAlert()">
+          Home
+        </a>-->
+      </div>
+      <ion-list no-margin>
+        <button menuClose ion-item default-item item-title main-menu no-lines *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon outline icon-small icon-left>
+            <ion-icon [name]="p.icon"></ion-icon>
+          </ion-icon>
+            {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content main swipeBackEnabled="false" main></ion-nav>
+</ion-split-pane>

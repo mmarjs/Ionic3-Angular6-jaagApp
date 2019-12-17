@@ -1,0 +1,51 @@
+/*  #Style Google Card - Full Image Cards
+================================================*/
+google-card-layout-1 {
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+  }
+  .dnld {
+    margin-right: 5px;
+  }
+  .bkmarked {
+    color: #583e1e !important;
+  }
+  // Settings Card
+  ion-card {
+    box-shadow: none !important;
+    border-radius: $border-radius !important;
+
+    [card-image] {
+      position: relative;
+    }
+    [watch-now] {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2%;
+    }
+    ion-card-content {
+      overflow: hidden;
+
+      ion-card-title {
+        overflow: hidden;
+
+        // Card Description
+        [card-title] {
+          line-height: 4.5rem;
+          margin-bottom: 5px;
+          white-space: nowrap !important;
+          color: color($googleCard, card-title-full-images-cards) !important;
+        }
+
+        [card-body-text] {
+          color: color($googleCard, card-description-full-images-cards) !important;
+          margin-bottom: 30px;
+        }
+        [span-medium] {
+          display: block;
+        }
+      }
+    }
+  }
+}

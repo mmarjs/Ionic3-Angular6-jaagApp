@@ -1,0 +1,99 @@
+/*  #Style Login + logo 2
+================================================*/
+
+login-layout-2 {
+  .scroll-content {
+    padding-bottom: 0 !important;
+
+    ion-grid {
+      height: 100%;
+
+      ion-row {
+        height: 100%;
+
+        // Settings Logo
+        img {
+          max-width: 170px;
+          max-height: 40px;
+        }
+
+        // Settings Form
+        form {
+          padding: 16px !important;
+          border-radius: 14px !important;
+          margin-bottom: 20px;
+          background: theme-colors('mainColors', 'primaryBase') !important;
+          box-shadow: 0 3px 17px rgba(0, 0, 0, 0.16);
+
+          // login Title
+          [login-title] {
+            color: color($loginPage, login-title-logo-2);
+          }
+
+          ion-item {
+            padding-left: 0 !important;
+            padding-bottom: 15px !important;
+
+            [error-field] {
+              margin: 0 !important;
+              position: absolute !important;
+              bottom: 0 !important;
+              right: 5px !important;
+              font-size: $h6-font-size;
+            }
+
+            .item-inner {
+              border-bottom: none !important;
+              box-shadow: none !important;
+              padding-right: 0 !important;
+            }
+
+            ion-label {
+              margin: 0 5px !important;
+            }
+
+            ion-input {
+              background: theme-colors('mainColors', 'primaryBase') !important;
+              box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1) !important;
+              margin: 5px 10px 15px 10px !important;
+              padding: 5px 10px !important;
+              width: calc(100% - 9px);
+              border-radius: 24px;
+              z-index: 999;
+
+              .input-cover {
+                display: none;
+              }
+            }
+
+            [stacked] {
+              font-size: $text-font-size !important;
+            }
+          }
+
+          [bottom-form] {
+            position: relative;
+            display: inline-block;
+            padding-top: 50px;
+            width: 100%;
+
+            &::after {
+              content: "or try";
+              font-size: $h6-font-size;
+              color: theme-colors('textColors', 'secondaryDark');
+              width: 140px;
+              border-bottom: 1px solid theme-colors('mainColors', 'borderColor');
+              position: absolute;
+              top: 30px;
+              left: calc(50% - 70px);
+            }
+          }
+
+          [button-icon-clear] {
+            box-shadow: none !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<!--Theme Google Card - Styled cards-->
+<ion-content>
+  <ion-slides *ngIf="data != null"  #wizardSlider background-size pager="true"
+    [ngStyle]="{'background-image': 'url(' + data.backgroundImage + ')'}">
+
+    <ion-slide text-center *ngFor="let item of data.items;let i = index">
+
+        <ion-card text-left box-shadow margin-bottom>
+          <!--Card Image-->
+          <div card-image background-size
+            [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            <!-- <img [src]="item.image" /> -->
+            <div watch-now text-center (click)="onEvent('onItemClick', item, $event)">
+              <button ion-button button-icon icon-start >
+                <ion-icon icon-small [name]="item.icon"></ion-icon>
+                {{item.iconText}}
+              </button >
+            </div>
+          </div>
+          <!--Card descriptiom-->
+          <ion-card-content>
+            <ion-card-title text-center>
+                <!--Card Subtitle-->
+                <h1 card-title>{{item.title}}</h1>
+                <!-- Icon Rating Star -->
+                <ion-icon *ngFor="let star of item.ratingStar.iconsStars; let i = index" (click)="onStarClass(item.ratingStar.iconsStars, i, $event)">
+                  <i icon-small *ngIf="star.isActive" class="icon {{star.iconActive}}"></i>
+                  <i icon-small *ngIf="!star.isActive" class="icon {{star.iconInactive}}"></i>
+                </ion-icon>
+                <!-- Reviews Star -->
+                <span span-medium>{{item.reviews}}</span>
+                <!--Card Body Text-->
+                <p margin-top card-body-text>{{item.description}}</p>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+
+    </ion-slide>
+  </ion-slides>
+</ion-content>

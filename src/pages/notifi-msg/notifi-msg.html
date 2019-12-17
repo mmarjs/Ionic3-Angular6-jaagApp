@@ -1,0 +1,53 @@
+<!--
+  Generated template for the NotifiMsgPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Latest Notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid no-padding>
+    <ion-row *ngIf="notifiList">
+      <ion-col col-12 col-md-6 col-lg-3 *ngFor="let item of notifiList.slice().reverse()">
+        <ion-card box-shadow margin-bottom>
+          <!--Card descriptiom
+          <ion-card-header>
+            {{item.title}}
+            <p>{{item.date}}</p>
+          </ion-card-header>   -->     
+          <ion-card-content [ngClass]="{'cnt-rtl cnt-ur':item.lang === 'ur'}">
+            <ion-card-title text-center>
+                {{item.title}}
+                <div span-small>{{item.date | date: "MMM dd, yyyy H:mm" }}</div>
+                <!--Card Subtitle-->
+            </ion-card-title>
+            <p margin-top card-body-text>{{item.content}}</p>
+            <button ion-button button-icon icon-start *ngIf="item.adurl !== ''" (click)="clickTopage('AudiohomePage',item.adurl)">
+              <ion-icon icon-small name="ios-headset"></ion-icon>
+              Audio
+            </button>
+            <button ion-button button-icon icon-start *ngIf="item.vdurl !== ''" (click)="clickTopage('VidhomePage',item.vdurl)">
+              <ion-icon icon-small name="ios-videocam"></ion-icon>
+              Video
+            </button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row text-center *ngIf="notifiList.length === 0">
+      <h4>
+        Notifications are not available.
+      </h4>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="yFooterClass" *ngIf="backtotop">
+  <div (click)="scrollToAbove()" class="backtotop">
+    <ion-icon icon-large name="ios-arrow-dropup-circle-outline"></ion-icon>
+  </div>
+</ion-footer>

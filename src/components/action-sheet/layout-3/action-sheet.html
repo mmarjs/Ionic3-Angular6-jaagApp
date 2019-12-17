@@ -1,0 +1,38 @@
+<!-- Theme Action Sheet - With Text Header -->
+<ion-header>
+  <ion-navbar box-shadow>
+    <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title *ngIf="data != null">{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- List Content -->
+<ion-content padding-top>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row *ngIf="data != null">
+      <!-- Cards Full Image-->
+      <ion-col col-12 col-sm-6 col-lg-4 *ngFor="let item of data.items;let i = index">
+        <ion-item no-lines>
+          <!-- Card Categoty-->
+          <span new-category text-uppercase>{{item.category}}</span>
+          <!-- Card Title-->
+          <h2 card-title>{{item.title}}</h2>
+          <!-- Card Subtitle-->
+          <h3 card-subtitle>{{item.subtitle}}</h3>
+          <!-- Card Action Sheet Button-->
+          <div item-content text-right>
+            <button ion-button ion-text button-action-shit (click)="presentActionSheet(data)">
+                    <ion-icon [name]="data.shareIcon"></ion-icon>
+                </button>
+            <ion-badge box-shadow badge-light>{{item.button}}</ion-badge>
+          </div>
+        </ion-item>
+        <!-- Card Big Image-->
+        <ion-card (click)="onEvent('onItemClick', item, $event)">
+          <img [src]="item.image" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

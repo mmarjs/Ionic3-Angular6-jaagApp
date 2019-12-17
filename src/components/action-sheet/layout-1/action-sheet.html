@@ -1,0 +1,49 @@
+<!--- Theme Parallax - Product -->
+<ion-header>
+  <ion-navbar transparent [ngClass]="{'active':isClassActive()}">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data != null">{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content elastic-header *ngIf="data != null">
+  <!-- Parallax Big Image -->
+  <div id="elastic-header" box-shadow>
+    <div background-size [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+      <div title-block>
+        <ion-item transparent no-lines *ngFor="let item of data.items;let i = index">
+          <!-- Name Category-->
+          <span new-category text-uppercase>{{item.category}}</span>
+          <!-- Parallax Title -->
+          <h2 text-wrap parallax-title>{{item.title}}</h2>
+          <!-- Parallax Subtitle -->
+          <h3 text-wrap parallax-subtitle>{{item.subtitle}}</h3>
+          <div item-content text-right>
+            <button item-end ion-button ion-text button-action-shit (click)="presentActionSheet(data)">
+              <ion-icon [name]="data.shareIcon"></ion-icon>
+            </button>
+            <div item-content>
+              <ion-badge float-right text-uppercase badge-clear (click)="onEvent('onProceed', item, $event)">{{item.button}}</ion-badge>
+            </div>
+          </div>
+        </ion-item>
+      </div>
+    </div>
+    <!-- Description Products -->
+    <ion-item no-lines small-description *ngFor="let item of data.items;let i = index">
+      <p parallax-description margin-bottom text-wrap>{{item.description}}</p>
+    </ion-item>
+  </div>
+  <!--Content-->
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12 *ngFor="let item of data.items;let i = index" (click)="onEvent('onItemClick', item)">
+        <!--Content With Text-->
+        <ion-item no-lines *ngFor="let productDescription of item.productDescriptions">
+          <p parallax-description text-wrap>{{productDescription.description}}</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

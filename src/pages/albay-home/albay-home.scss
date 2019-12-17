@@ -1,0 +1,27 @@
+page-albay-home {
+    .sIntro {
+        margin-top: 10px;
+        img {
+            width: 50%;
+        }
+    }
+    .card-md {
+        background: transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .grIntro {
+        position: absolute;
+        bottom: 37%;
+        right: 0px;
+    }
+    .suraborder {
+        height: 100%;
+        border-radius: 20px;
+        border: 1px solid #006994;
+        ion-icon {
+            position: absolute;
+            left: 20px;
+        }
+    }
+}

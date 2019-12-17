@@ -1,0 +1,39 @@
+<!--
+  Generated template for the IntroPopupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="data.title">{{data.title.en}} / {{data.title.ur}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <div col-8 *ngFor="let item of toggleItem; let i= index">
+      <ion-item default-item >
+        <ion-label>{{item.title}}</ion-label>
+        <ion-label *ngIf="item.titleB"> / {{item.titleB}}</ion-label>
+        <ion-toggle item-end (ionChange)="onToggleEvent('onSelect',item)" [checked]="item.isChecked"></ion-toggle>
+      </ion-item>
+    </div>
+    <div col-4 text-right>
+      <button ion-button default-button text-capitalize (click)="onEvent('onFinish')" small>
+        Close
+      </button>
+    </div>
+  </ion-row>
+  <ion-card *ngIf="data.content && !toggleItem[0].isChecked">
+      <ion-card-content [innerHTML]="data.content.en">
+      </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="data.content && toggleItem[0].isChecked" class="cnt-rtl cnt-ur">
+    <ion-card-content [innerHTML]="data.content.ur">
+    </ion-card-content>
+  </ion-card>
+</ion-content>

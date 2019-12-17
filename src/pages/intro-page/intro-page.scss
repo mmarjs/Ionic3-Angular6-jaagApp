@@ -1,0 +1,14 @@
+page-intro-page {
+    .loadthumb {
+        z-index: 9;
+        position: fixed;
+        bottom: 40px;
+        right: 0px;
+        img {
+            width: 40px;
+        }
+    }
+    ion-card img {
+        display: inline-block;
+    }
+}

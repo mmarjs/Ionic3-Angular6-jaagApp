@@ -1,0 +1,104 @@
+<!-- Theme Action Sheet - News -->
+<ion-header>
+  <ion-navbar transparent [ngClass]="{'active':isClassActive()}">
+    <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title *ngIf="data != null" [ngClass]="{'cnt-rtl cnt-ur':data.ur}">{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- Content -->
+<ion-content elastic-header> 
+  <ion-item no-lines background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+    <div title-block *ngIf="data != null" [ngClass]="{'cnt-rtl cnt-ur':data.ur}">
+      <ion-scroll scrollY="true" style="width: 100%; height: 106px;">
+          <h3 padding parallax-title text-wrap>{{data.title}}</h3>
+      </ion-scroll>
+      <!-- Parallax-title 
+      <h1 padding-left parallax-title text-wrap>{{data.title}}</h1>-->
+      <!-- New-category -->
+      <span new-category padding-left padding-bottom text-uppercase>{{data.category}}</span>
+    </div>
+  </ion-item>
+  <ion-item-group *ngIf="data != null">
+    <ion-item-divider border no-lines>
+      <!-- Avatar-->
+      <ion-avatar item-start>
+        <img [src]="data.avatar" />
+      </ion-avatar>
+      <!-- Item-subtitle -->
+      <h2 item-title>{{data.subtitle}}</h2>
+      <!-- Action Sheet Button-->
+      <button item-end ion-button ion-text button-action-shit (click)="presentActionSheet(data)">
+          <ion-icon [name]="data.shareIcon"></ion-icon>
+      </button>
+    </ion-item-divider>
+    <div text-center>
+      <button button-clear-outline outline round ion-button (click)="scrollTobookmark()" *ngIf="bookmark">
+        Your Bookmark <ion-icon name="bookmarks"></ion-icon>
+      </button>
+    </div>
+    <ion-item no-margin no-lines>
+      <ion-label>
+        <div class="FontSize cnt-inline">
+          <div class="fntHed cnt-inline">Font Size = </div>
+          <div class="cnt-inline">
+            <div class="cnt-inline fontEn xsFont" (click)="setZoom('xsFont')">
+              A
+            </div>
+            <div class="cnt-inline fontEn smFont" (click)="setZoom('smFont')">
+              A
+            </div>
+            <div class="cnt-inline fontEn noFont" (click)="setZoom('noFont')">
+              A
+            </div>
+            <div class="cnt-inline fontEn LgFont" (click)="setZoom('LgFont')">
+              A
+            </div>
+            <div class="cnt-inline fontEn xLFont" (click)="setZoom('xLFont')">
+              A
+            </div>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>  
+    <ion-item no-margin no-lines>  
+      <ion-label text-right>Night / Day</ion-label>
+      <ion-toggle item-end (ionChange)="dayLight()" [checked]="daylight"></ion-toggle>
+    </ion-item>
+    <div col-6 col-lg-3 *ngIf="data.multilang">
+      <ion-item no-lines no-padding>
+        <ion-label text-right>EN</ion-label>
+        <ion-label> / UR</ion-label>
+        <ion-toggle item-end (ionChange)="onEvent('onSelect',item)" [checked]="multiur"></ion-toggle>
+      </ion-item>
+    </div>
+    <ion-item no-margin no-lines *ngFor="let item of data.items;let i = index" [ngClass]="{'item-md-dark':!daylight}">
+      <!-- Parallax-subtitle -->
+      <h2 [id]="data.actionSheet.buttons[i].text" no-margin></h2>
+      <div text-center><img *ngIf="i > 0" class="mzstl" src="assets/images/core/mizan/chapst.png" /></div>      
+      <div *ngIf="data.multilang">
+          <h2 *ngIf="item.title.en && !multiur" text-center parallax-subtitle margin-bottom text-wrap>{{item.title.en}}</h2>
+          <h2 *ngIf="item.title.ur && multiur" class="cnt-ur" text-center parallax-subtitle margin-bottom text-wrap>{{item.title.ur}}</h2>
+          <!-- Parallax-description -->
+          <div *ngIf="item.content && !multiur" class="cnt-en {{elzm}}" parallax-description text-wrap [innerHTML]="item.content.content.en"></div>
+          <div class="cnt-rtl cnt-ur {{elzm}}" *ngIf="item.content && multiur" parallax-description text-wrap [innerHTML]="item.content.content.ur"></div>
+      </div>
+      <div *ngIf="!data.multilang">
+          <h2 *ngIf="item.title.en" text-center parallax-subtitle margin-bottom text-wrap>{{item.title.en}}</h2>
+          <h2 *ngIf="item.title.ur" class="cnt-ur" text-center parallax-subtitle margin-bottom text-wrap>{{item.title.ur}}</h2>
+          <!-- Parallax-description -->
+          <div class="cnt-en {{elzm}}" parallax-description text-wrap *ngIf="item.content" [innerHTML]="item.content.content.en"></div>
+          <div class="cnt-rtl cnt-ur {{elzm}}" parallax-description text-wrap *ngIf="item.content" [innerHTML]="item.content.content.ur"></div>
+      </div>
+    </ion-item>
+  </ion-item-group>
+</ion-content>
+<ion-footer class="yFooterClass" *ngIf="backtotop">
+  <div (click)="scrollToAbove()" class="backtotop">
+    <ion-icon icon-large name="ios-arrow-dropup-circle-outline"></ion-icon>
+  </div>
+  <ion-fab bottom left>
+    <button (click)="setBookmark()" transparent><ion-icon icon-large name="bookmarks" [ngClass]="{'notmarked':!bookmark, 'bkmarked':bookmark}"></ion-icon></button>
+  </ion-fab>
+</ion-footer>  

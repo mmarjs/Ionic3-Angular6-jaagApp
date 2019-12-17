@@ -1,0 +1,157 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Mizan Home Page</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<div text-right>
+  <button button-clear-outline outline round ion-button (click)="scrollTobookmark()" *ngIf="bookmark">
+    Your Bookmark <ion-icon name="bookmarks"></ion-icon>
+  </button>
+</div>
+<ion-item default-item >
+  <ion-label>English / Urdu</ion-label>
+  <ion-toggle item-end (ionChange)="onEvent('onLang')" [checked]="lang === 'ur'"></ion-toggle>
+</ion-item>
+<ion-row text-center *ngIf="mizan != null">
+  <div>
+    <img src="assets/images/core/mizan/deb.png" />
+    <img class="mzfeh" src="assets/images/core/mizan/chapst.png" />
+  </div>
+  <div class="cnt-rtl" *ngIf="lang === 'ur'">
+    <img class="mzfeh" src="assets/images/core/mizan/feh.png" />
+    <ion-row>
+      <ion-col col-3>
+        <img src="assets/images/core/mizan/muq1.png" />
+      </ion-col>
+      <ion-col col-3>
+        <img src="assets/images/core/mizan/muq2.png" />
+      </ion-col>
+      <ion-col col-3>
+        <img src="assets/images/core/mizan/hik.png" />
+      </ion-col>
+      <ion-col col-3>
+        <img src="assets/images/core/mizan/kit.png" />
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngIf="lang === 'en'">
+    <img class="mzstl" src="assets/images/core/mizan/ind.png" />
+    <ion-row>
+        <ion-col col-3>
+          <img src="assets/images/core/mizan/pre1.png" />
+        </ion-col>
+        <ion-col col-3>
+          <img src="assets/images/core/mizan/pre2.png" />
+        </ion-col>
+        <ion-col col-3>
+          <img src="assets/images/core/mizan/hik_en.png" />
+        </ion-col>
+        <ion-col col-3>
+          <img src="assets/images/core/mizan/kit_en.png" />
+        </ion-col>
+      </ion-row>
+  </div>
+  <div class="mzsec">
+    <img class="stp" src="assets/images/core/mizan/stp.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'en'" src="assets/images/core/mizan/pre1.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'ur'" src="assets/images/core/mizan/muq1.png" />
+  </div>
+  <ion-card [ngClass]="{'cnt-ur cnt-rtl':lang ==='ur', 'notStored':g1.notstored}" text-center *ngFor="let g1 of mizan.tableOfContents | slice:0:1 ; let i = index">   
+    <div class="topicHed">
+      <h1 (click)="onNavEvent(g1, i)">{{g1.title[lang]}}</h1>
+    </div>
+    <div *ngIf="g1.subchapters" (click)="onNavEvent(g1, i)">
+      <div *ngFor="let g2 of g1.subchapters">
+          <h2 class="mainchap">{{g2.title[lang]}}</h2>
+          <div class="cnt-inline" *ngIf="g2.subchapters">
+            <div class="cnt-inline" *ngFor="let g3 of g2.subchapters">
+              <h4 class="cnt-inline">{{g3[lang]}}</h4>
+              <div class="star cnt-inline">
+                <img *ngIf="!last" src="assets/images/core/mizan/star.png" />
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <div class="mzsec">
+    <img class="stp" src="assets/images/core/mizan/stp.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'en'" src="assets/images/core/mizan/pre2.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'ur'" src="assets/images/core/mizan/muq2.png" />
+  </div>
+  <ion-card [ngClass]="{'cnt-ur cnt-rtl':lang ==='ur', 'notStored':g1.notstored}" text-center *ngFor="let g1 of mizan.tableOfContents | slice:1:2 ; let i = index">
+    <div class="topicHed_2">
+      <h1 (click)="onNavEvent(g1, i+1)">{{g1.title[lang]}}</h1>
+    </div>
+    <div *ngIf="g1.subchapters" (click)="onNavEvent(g1, i)">
+      <div *ngFor="let g2 of g1.subchapters">
+        <h2 class="mainchap">{{g2.title[lang]}}</h2>
+        <div class="cnt-inline" *ngIf="g2.subchapters">
+          <div class="cnt-inline" *ngFor="let g3 of g2.subchapters">
+            <h4 class="cnt-inline">{{g3[lang]}}</h4>
+            <div class="star cnt-inline">
+              <img *ngIf="!last" src="assets/images/core/mizan/star.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <div class="mzsec">
+    <img class="stp" src="assets/images/core/mizan/stp.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'en'" src="assets/images/core/mizan/hik_en.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'ur'" src="assets/images/core/mizan/hik.png" />
+  </div>
+  <ion-card [ngClass]="{'cnt-ur cnt-rtl':lang ==='ur', 'notStored':g1.notstored}" text-center *ngFor="let g1 of mizan.tableOfContents | slice:2:4 ; let i = index">
+    <div class="topicHed">
+      <h1 (click)="onNavEvent(g1, i+2)">{{g1.title[lang]}}</h1>
+    </div>
+    <div *ngIf="g1.subchapters" (click)="onNavEvent(g1, i+2)">
+      <div *ngFor="let g2 of g1.subchapters">
+        <h2 class="mainchap">{{g2.title[lang]}}</h2>
+        <div class="cnt-inline" *ngIf="g2.subchapters">
+          <div class="cnt-inline" *ngFor="let g3 of g2.subchapters">
+            <h4 class="cnt-inline">{{g3[lang]}}</h4>
+            <div class="star cnt-inline">
+              <img *ngIf="!last" src="assets/images/core/mizan/star.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <div class="mzsec">
+    <img class="stp" src="assets/images/core/mizan/stp.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'en'" src="assets/images/core/mizan/kit_en.png" />
+    <img class="mzstl" text-center *ngIf="lang === 'ur'" src="assets/images/core/mizan/kit.png" />
+  </div>
+  <ion-card [ngClass]="{'cnt-ur cnt-rtl':lang ==='ur', 'notStored':g1.notstored}" text-center *ngFor="let g1 of mizan.tableOfContents | slice:4:18 ; let i = index">
+    <div class="topicHed">
+      <h1 (click)="onNavEvent(g1, i+4)">{{g1.title[lang]}}</h1>
+    </div>
+    <div *ngIf="g1.subchapters" (click)="onNavEvent(g1, i+4)">
+      <div *ngFor="let g2 of g1.subchapters">
+        <h2 class="mainchap">{{g2.title[lang]}}</h2>
+        <div class="cnt-inline" *ngIf="g2.subchapters">
+          <div class="cnt-inline" *ngFor="let g3 of g2.subchapters">
+            <h4 class="cnt-inline">{{g3[lang]}}</h4>
+            <div class="star cnt-inline">
+              <img *ngIf="!last" src="assets/images/core/mizan/star.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+</ion-row>
+</ion-content>
+<ion-footer class="yFooterClass" *ngIf="backtotop">
+  <div (click)="scrollToAbove()" class="backtotop">
+    <ion-icon icon-large name="ios-arrow-dropup-circle-outline"></ion-icon>
+  </div>
+</ion-footer>

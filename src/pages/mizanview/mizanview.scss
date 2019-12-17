@@ -1,0 +1,40 @@
+page-mizanview {
+    [icon-large] {
+        color: #583e1e !important;
+    }
+    .notmarked {
+        color: grey !important;
+    }
+    .bkmarked {
+        color: #583e1e !important;
+    }
+    .FontSize {
+        background: transparent;
+    }
+    .card-md { 
+        margin-top: 0px !important;
+    }
+    .topicHed{
+        display: inline-block;
+        border-image: url(../assets/images/core/mizan/uline.png) 40 round;
+        border-bottom: 7px solid transparent;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .mainchap {
+        margin: 5px;
+        color: #1DA1F2;
+    }
+    .mz-cnt {
+        margin-top: 15px;
+        text-align: justify;
+        font-size: 1.8rem;
+    }
+    .star {
+        width: 10px;
+        margin: 0px 5px;
+    }
+    .mzstl {
+        max-width: 150px;
+    }
+}

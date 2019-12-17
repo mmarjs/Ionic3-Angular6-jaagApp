@@ -1,0 +1,258 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// Settings Style Main Meni
+
+body {
+  padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2 */
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.yFooterClass {
+  margin-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
+  margin-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
+} 
+[button-clear-outline] {
+  font-size: 10px !important;
+  border: 1px solid #583e1e !important;
+  padding: 3px 5px !important;
+}
+[header-background-image] {
+  height: 250px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+
+  [header-title] {
+    padding-right: 10%;
+    color: theme-colors('textColors', 'secondaryDark');
+    padding: 0;
+    z-index: 999;
+    font-weight: 400 !important;
+    margin-top: 40px;
+    line-height: 23px;
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
+  }
+
+  img {
+    position: relative;
+    padding-top: 24px;
+    max-width: 185px;
+    z-index: 999;
+    display: flex;
+    align-self: end;
+  }
+}
+
+.header-ios {
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+      width: 24px !important;
+      margin-right: 0 !important;
+  }
+}
+
+[main-menu], [sub-menu] {
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: theme-colors('textColors', 'accent');
+  }
+
+  .item-inner {
+    margin-left: 6px !important;
+  }
+
+  ion-label {
+    font-weight: 300;
+  }
+}
+.card-ios {
+  background: transparent;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+}
+// Main css items will be used on different pages
+.cnt-rtl {
+  direction: rtl;
+}
+.cnt-inline {
+  display: inline-block;
+  p {
+    display: inline-block;
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+}
+.cnt-ar {
+  display: inline-block;
+  font-family: '_PDMS_Saleem_QuranFont', 'Simplified Arabic', 'Traditional Arabic', 'Arabic Typesetting', 'Droid Naskh', 'Droid Kufi', 'ABeeZee', 'open sans', 'Tahoma', serif;
+  font-weight: 500;
+  text-align: justify;
+  font-size: 3rem !important;
+}
+.xsFontAR {
+  font-size: 1.0rem !important;
+}
+.smFontAR {
+  font-size: 1.5rem !important;
+}
+.noFontAR {
+  font-size: 3rem !important;
+}
+.LgFontAR {
+  font-size: 3.5rem !important;
+}
+.xLFontAR {
+  font-size: 4.0rem !important;
+}
+.cnt-ur {
+  line-height: 2.3 !important;
+  font-family: 'Jameel Noori Nastaleeq','Nafees';
+  font-size: 1.8rem;
+  line-height: 2.3;
+  direction: rtl;
+  text-align: justify;
+  p {
+    line-height: 2.3 !important;
+    font-family: 'Jameel Noori Nastaleeq','Nafees';
+    font-size: 1.8rem;
+    line-height: 2.3;
+    direction: rtl;
+    text-align: justify;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    direction: rtl;
+    line-height: 2.2em;
+    font-family: 'Jameel Noori Nastaleeq','Nafees';
+  }
+}
+.cnt-en{
+  text-align: justify;
+  font-size: 1.8rem;
+}
+.FontSize {
+  background-color: white;
+  padding: 5px;
+  .fontEn {
+    padding: 3px;
+    margin: 0px 3px;
+    display: inline-block;
+  }
+}
+.xsFont {
+  p, span {
+    font-size: 0.8rem !important;
+  }
+  font-size: 0.8rem !important;
+}
+.smFont {
+  p, span{
+    font-size: 1.3rem !important;
+  }
+  font-size: 1.3rem !important;
+}
+.noFont {
+  p, span {
+    font-size: 1.8rem !important;
+  }
+  font-size: 1.8rem !important;
+}
+.LgFont {
+  p, span {
+    font-size: 2.3rem !important;
+  }
+  font-size: 2.3rem !important;
+}
+.xLFont {
+  p, span {
+    font-size: 2.8rem !important;
+  }
+  font-size: 2.8rem !important;
+}
+.notStored {
+  opacity: 0.3;
+}
+blockquote {
+  font-size: 1.5rem;
+  background-color: #f5f5dc;
+  font-family: 'Jameel Noori Nastaleeq', 'Nafees', 'ABeeZee', 'open sans', serif;
+  padding: 0px 5px;
+  margin-inline-start: 5px;
+  margin-inline-end: 5px;
+  p {
+    font-size: 1.5rem;
+  }
+}
+b, strong {
+  font-family: '_PDMS_Saleem_QuranFont', 'Simplified Arabic', 'Traditional Arabic', 'Arabic Typesetting', 'Droid Naskh', 'Droid Kufi', 'ABeeZee', 'open sans', 'Tahoma', serif;
+  font-weight: 500;
+  font-size: 2rem !important;
+}
+.backtotop {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+  [icon-large] {
+    color: #583e1e !important;
+  }
+}
+.daynightbtn {
+  padding: 3px;
+  background-color: white;
+}
+.item-md-dark {
+  color: white;
+  background-color: black;
+  h1, h2, h3, h4, h5, p {
+    color: white !important;
+  }
+}
+.content-md-dark {
+  .daynightbtn {
+    padding: 3px;
+    color: white !important;
+    background-color: black !important;
+  }
+  color: white;
+  background-color: black;
+  hr {
+    background-color: white;
+  }
+  img {
+    filter: invert(100%);
+  }
+  blockquote {
+    background-color: #583e1e;
+  }
+  .card-md { 
+    color: white;
+    background-color: #583e1e;
+    h1, h2, h3, h4, h5 {
+      color: white;
+    }
+  }
+  .akhed {
+    background-image: url(../assets/images/core/albay/versenrop.png);
+  }
+  .item-md {
+    background-color: #f5f5dc;
+  }
+}

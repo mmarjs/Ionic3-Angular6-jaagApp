@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Video Home <span header-title *ngIf="selecthead"> - {{selecthead}}</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <div class="catCont" *ngFor="let cat of categories;let i = index">
+        <ion-item no-lines no-margin (click)="getVid(cat._id, '', '')" *ngIf="!cat.subCategories.length > 0">
+          <div text-center>
+              <img src="assets/images/core/other/{{i}}.png" />
+          </div>
+        </ion-item>
+        <ion-item no-lines no-margin (click)="pickCat(cat)" *ngIf="cat.subCategories.length > 0">
+          <div text-center>
+              <img src="assets/images/core/other/{{i}}.png" />
+          </div>
+        </ion-item>
+      </div>
+      <ion-toolbar padding-horizontal transparent text-center>
+        <ion-searchbar type="string" [(ngModel)]="searchText" placeholder="Search For ..."></ion-searchbar>
+        <button ion-button outline round (click)="searchVideo()">Search</button>
+      </ion-toolbar>
+    </ion-row>
+    <ion-row *ngIf="!showList && !vdPlayer">
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ul collapsible no-margin no-padding>
+            <li *ngFor="let group of selectcat;">
+              <ion-card>
+              <div (click)="getVid(selecthead, group._id, '')" *ngIf="!group.subCategories.length > 0">
+                <ion-item default-item no-lines>
+                  <h2 item-title>{{group._id}}</h2>
+                </ion-item>
+              </div>
+              <div collapsible-header (click)="toggleGroup(group)" *ngIf="group.subCategories.length > 0">
+                <ion-item default-item no-lines>
+                  <h2 item-title>{{group._id}}</h2>
+                </ion-item>
+              </div>
+              <div item-accordion [ngClass]="{'active': isGroupShown(group) }" [hidden]="!isGroupShown(group)">
+                <ion-item default-item no-lines *ngFor="let item of group.subCategories;">
+                  <ion-label (click)="getVid(selecthead, group._id, item)">
+                    <h3 text-wrap>{{item}}</h3>
+                  </ion-label>
+                </ion-item>
+              </div>
+              </ion-card>
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="showList && !vdPlayer">
+      <ion-col col-12 text-center *ngIf="!selecthead">
+        <h2> Latest Content </h2>
+      </ion-col>
+      <ion-col col-12 *ngIf="vidList">
+        <ion-item [color]="odd? 'secondary' : '' " default-item no-lines text-wrap *ngFor="let vid of vidList; let odd=odd;">
+          <ion-avatar item-end>
+            <img src="{{thumbURL}}/m/thumb/video/{{vid.embed.thumb}}" />
+          </ion-avatar>
+          <ion-label>
+            <h3 (click)="listShare(vid)"><ion-icon name="ios-share-alt">
+            </ion-icon>SHARE</h3>
+            <div (click)="openVideo(vid)">
+              <h2>{{vid.title.en}}</h2>
+              <p>{{vid.description.en}}</p>
+              <div class="cnt-rtl cnt-ur cnt-margtop">
+                <h2>{{vid.title.ur}}</h2>
+                <p class="cnt-margtop">{{vid.description.ur}}</p>
+              </div>
+            </div>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="vdPlayer">
+      <ion-col col-12>
+        <div class="embed-responsive" [ngClass]="{'embed-responsive-16by9': videocontent.aratio === '16:9', 'embed-responsive-4by3': !videocontent.aratio || videocontent.aratio === '4:3'}" [innerHTML]="videocontent.embed.video | sanitizeHtml"></div>
+      </ion-col>
+      <h3 (click)="listShare(videocontent)"><ion-icon name="ios-share-alt">
+      </ion-icon>SHARE</h3>
+      <ion-item *ngIf="fullVidData">
+        <ion-label *ngIf="fullVidData.previous">
+          <button button-clear-outline outline round ion-button (click)="seriesBro(fullVidData.previous._id)">
+            <ion-icon name="arrow-round-back"></ion-icon> Previous Video
+          </button>
+        </ion-label>
+        <ion-label text-right *ngIf="fullVidData.next">
+          <button button-clear-outline outline round ion-button (click)="seriesBro(fullVidData.next._id)">
+            Next Video <ion-icon name="arrow-round-forward"></ion-icon>
+          </button>
+        </ion-label>
+      </ion-item>
+      <div class="vdCont">
+        <h1>{{videocontent.title.en}}</h1>
+        <p>{{videocontent.description.en}}</p>
+        <div class="cnt-rtl cnt-ur cnt-margtop">
+          <h1>{{videocontent.title.ur}}</h1>
+          <p class="cnt-margtop">{{videocontent.description.ur}}</p>
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

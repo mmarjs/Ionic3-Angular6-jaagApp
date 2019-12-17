@@ -1,0 +1,65 @@
+/*  #Style Google Card - Styled cards
+================================================*/
+google-card-layout-3 {
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+
+    .label-ios,
+    .label-md {
+      margin: 0 !important;
+    }
+
+    ion-card {
+      position: relative;
+      //height: 200px;
+      //border-radius: $border-radius !important;
+      border-radius: 170px !important;
+      margin-top: 20px !important;
+      margin-bottom: 0px !important;
+      box-shadow: none !important;
+
+      &:before {
+        content: "";
+       // @include gradient-primary;
+        position: absolute;
+        height: 50%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      img {
+        //height: 200px;
+        height: 100%;
+      }
+
+      [title-block] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        padding: 10px;
+      }
+      // New Category
+      [new-category] {
+        text-align: center;
+        font-size: $h1-font-size !important;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+      }
+    }
+
+    [card-title] {
+      color: color($googleCard, card-title-secondary-basic);
+      line-height: 27px;
+      font-size: 20px !important;
+    }
+    // Card Subtitle
+    [card-subtitle] {
+      color: color($googleCard, card-description-secondary-basic);
+    }
+  }
+}

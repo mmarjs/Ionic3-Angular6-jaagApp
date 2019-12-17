@@ -1,0 +1,14 @@
+<!--Wizard component-->
+<ion-content no-margin no-padding *ngIf="params != null">
+    <wizard-layout-1 [data]="params.data" [events]="params.events">
+    </wizard-layout-1>
+    <div class="loadthumb" *ngIf="msgshow">
+        <ion-card>
+            <ion-card-content text-center>
+                <h4 no-margin>Dowloading Initial Data</h4>
+                <h5 no-margin>Please wait...</h5>
+                <img src="assets/svg/three-dots.svg" />
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<!-- Theme Search - Field + Header -->
+<ion-header>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title *ngIf="data != null">{{data.headerTitle}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar box-shadow no-padding transparent ion-affix background-size *ngIf="data != null" [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      <div search-bar-bcg padding-horizontal>
+        <!-- Header Title -->
+        <h1 ion-text no-margin search-bar-title>{{data.title}}</h1>
+        <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onEvent('onTextChange', $event)"></ion-searchbar>
+      </div>
+  </ion-toolbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <!-- List Search-->
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ion-item default-item no-lines *ngFor="let item of data.items;" (click)="onEvent('onItemClick', item)">
+            <ion-avatar item-start>
+              <img [src]="item.avatar">
+            </ion-avatar>
+            <!-- Big Title -->
+            <h2 item-title text-capitalize>{{item.title}}</h2>
+            <!-- Description -->
+            <h2 item-subtitle text-wrap>{{item.subtitle}}</h2>
+              <!-- Button get -->
+              <button box-shadow text-capitalize button-follow ion-button item-end>{{item.button}}</button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

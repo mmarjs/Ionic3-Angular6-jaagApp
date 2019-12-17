@@ -1,0 +1,39 @@
+<ion-list>
+  <ion-item *ngFor="let item of toggleItem; let i= index">
+    <ion-label>{{item.title}}</ion-label>
+    <ion-toggle item-end (ionChange)="itemClick('ontoggle',item)" [checked]="item.isChecked"></ion-toggle>
+  </ion-item>
+  <ion-item >
+    <div class="FontSize">
+      <div class="fntHed">Font Size</div>
+      <div text-right>
+        <div class="cnt-inline fontEn xsFont" (click)="setZoom('xsFont')">
+          A
+        </div>
+        <div class="cnt-inline fontEn smFont" (click)="setZoom('smFont')">
+          A
+        </div>
+        <div class="cnt-inline fontEn noFont" (click)="setZoom('noFont')">
+          A
+        </div>
+        <div class="cnt-inline fontEn LgFont" (click)="setZoom('LgFont')">
+          A
+        </div>
+        <div class="cnt-inline fontEn xLFont" (click)="setZoom('xLFont')">
+          A
+        </div>
+      </div>
+    </div> 
+  </ion-item>
+  <ion-list radio-group [(ngModel)]="radItem.selectedItem" *ngIf="radItem !== ''">
+    <ion-item *ngFor="let rad of radItem.items; let i= index" [disabled]="!toggleItem[2].isChecked">
+      <ion-label>{{rad.title}}</ion-label>
+      <ion-radio [value]="rad.id" (ionSelect)="itemClick('onSelect',rad)"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <!--<ion-item *ngIf="radItem !== ''">
+    <ion-select class="wselect" [(ngModel)]="radItem.selectedItem" multiple="false" interface="popover" [disabled]="!toggleItem[2].isChecked">
+      <ion-option *ngFor="let rad of radItem.items; let i= index" [value]="rad.id" (ionSelect)="itemClick('onSelect',rad)">{{rad.title}}</ion-option>
+    </ion-select>
+  </ion-item>-->
+</ion-list>

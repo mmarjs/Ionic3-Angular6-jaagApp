@@ -1,0 +1,50 @@
+/*  #Style Wizard Simple + image
+===========================================*/
+wizard-layout-1 {
+  .slide-zoom {
+    width: 75%;
+    min-width: 300px;
+    height: 90%;
+  }
+  .tileholder {
+    background-color: white;
+    height: 95%;
+    .slide_img {
+      height: 90%;
+      margin: 10px;
+    }
+  }
+  ion-avatar img {
+    border-radius: 50%;
+    height: 228px !important;
+    width: 228px !important;
+    margin: 0 auto;
+  }
+
+  [ion-button] {
+    position: absolute !important;
+    z-index: 999 !important;
+    color: theme-colors('textColors', 'secondaryDark') !important;
+    bottom: 0;
+
+    &[float-right] {
+      right: 0;
+    }
+  }
+
+  [wizard-subtitle] {
+    color: color($wizardPage, wizard-title-simple-image);
+  }
+
+  [wizard-description] {
+    color: color($wizardPage, wizard-description-simple-image);
+  }
+
+  [logo] {
+    width: 170px;
+  }
+
+  .swiper-pagination-bullet {
+    background: theme-colors('mainColors', 'accentBase') !important;
+  }
+}

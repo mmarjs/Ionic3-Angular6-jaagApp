@@ -1,0 +1,19 @@
+/*********** Urdu FONT FILES *****************/
+@font-face {
+    font-family: 'Nafees';
+    src: url('../assets/fontsurar/nafees-nastaleeq-webfont.eot');
+    src: url('../assets/fontsurar/nafees-nastaleeq-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fontsurar/nafees-nastaleeq-webfont.woff') format('woff'),
+         url('../assets/fontsurar/nafees-nastaleeq-webfont.ttf') format('truetype'),
+         url('../assets/fontsurar/nafees-nastaleeq-webfont.svg#NafeesRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face { 
+    font-family: "_PDMS_Saleem_QuranFont"; 
+    font-weight: normal; 
+    font-style: normal;
+    src: url('../assets/fontsurar/PDMS_SALEEM_QURANFONTQESHIP_0.ttf') format('truetype'), 
+         local('_PDMS_Saleem_QuranFont'),
+         url('../assets/fontsurar/PDMS_Saleem.woff') format('woff'); 
+  }

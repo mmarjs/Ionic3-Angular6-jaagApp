@@ -1,0 +1,33 @@
+page-mizanhome {
+    .topicHed{
+        display: inline-block;
+        border-image: url(../assets/images/core/mizan/uline.png) 40 round;
+        border-bottom: 7px solid transparent;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .topicHed_2 {
+        display: inline-block;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .mainchap {
+        color: #1DA1F2;
+        &:hover {
+          color: #3b5998;
+        }
+    }
+    .star {
+        width: 10px;
+        margin: 0px 5px;
+    }
+    .mzstl {
+        max-width: 120px;
+    }
+    .mzfeh {
+        max-width: 150px;
+    }
+    .mzsec {
+        width: 100%;
+    }
+}

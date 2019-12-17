@@ -1,0 +1,13 @@
+/*  #Style -- Alert - Alert Subscribe
+===========================================*/
+
+alert-layout-3 {
+  ion-card {
+    box-shadow: none !important;
+    border-radius: $border-radius !important;
+
+    [card-title] {
+      margin-top: 10px;
+    }
+  }
+}

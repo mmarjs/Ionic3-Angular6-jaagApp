@@ -1,0 +1,72 @@
+/*  #Style Google Card - Full Image Cards
+================================================*/
+
+google-card-layout-4 {
+  ion-content {
+    background: theme-colors('mainColors', 'primaryBase') !important;
+  }
+
+  .slide-zoom,
+  ion-card {
+    height: calc(100% - 30px);
+  }
+  // Settings Card
+  ion-card {
+    box-shadow: none !important;
+    border-radius: $border-radius !important;
+
+    [card-image] {
+      position: relative;
+      height: 50%;
+    }
+
+    [watch-now] {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+    }
+
+    ion-card-content {
+      overflow: hidden;
+
+      ion-card-title {
+        overflow: hidden;
+        // Card Description
+        [card-title] {
+          margin-bottom: 10px;
+          white-space: nowrap !important;
+          color: color($googleCard, card-title-full-images-cards) !important;
+        }
+
+        [card-body-text] {
+          color: color($googleCard, card-description-full-images-cards) !important;
+          margin-bottom: 30px;
+        }
+
+        [span-medium] {
+          display: block;
+        }
+      }
+    }
+  }
+  // Settings Pagination
+  .swiper-pagination-bullet-active {
+    background: theme-colors('mainColors', 'accent') !important;
+    opacity: 1;
+    border: 2px solid theme-colors('mainColors', 'primaryBase') !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .swiper-pagination-bullet {
+    border-radius: 100%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: theme-colors('mainColors', 'primaryBase');
+    opacity: 1;
+    pointer-events: auto;
+    border: 2px solid theme-colors('mainColors', 'primaryBase') !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16) !important;
+  }
+}

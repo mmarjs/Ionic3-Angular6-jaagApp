@@ -1,0 +1,48 @@
+<!-- Themes Login + logo 2 -->
+<ion-content has-header *ngIf="data != null" background-size [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+  <ion-grid *ngIf="data != null">
+    <ion-row padding-left padding-right>
+      <ion-col text-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <img [src]="data.logo">
+      </ion-col>
+      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6 form>
+        <!---Form-->
+        <form>
+          <ion-item transparent text-center no-lines>
+            <!---Logo Title-->
+            <h1 ion-text login-title no-margin text-wrap text-uppercase>{{data.title}}</h1>
+          </ion-item>
+        <!---Input field username-->
+        <ion-item text-center margin-top transparent>
+          <ion-label stacked>{{data.labelUsername}}</ion-label>
+          <ion-input text-center required type="text" [placeholder]="data.username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-label error-field no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label>
+        </ion-item>
+        <!---Input field password-->
+        <ion-item text-center transparent>
+          <ion-label stacked>{{data.labelPassword}}</ion-label>
+          <ion-input text-center required type="password" [placeholder]="data.password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-label error-field no-margin *ngIf="!isPasswordValid">{{data.errorPassword}}</ion-label>
+        </ion-item>
+        <button ion-button button-clear text-capitalize clear float-right (click)="onEvent('onForgot')" >{{data.forgotPassword}}</button>
+        <div bottom-form text-center>
+          <!---Facebook button-->
+          <button button-icon-clear ion-button icon-only (click)="onEvent('onFacebook')">
+             <i icon-large class="icon icon-facebook"></i>
+         </button>
+          <!---Twitter button-->
+          <button button-icon-clear ion-button icon-only (click)="onEvent('onTwitter')">
+             <i icon-large class="icon icon-twitter"></i>
+         </button>
+          <!---Pinterest button-->
+          <button button-icon-clear ion-button icon-only (click)="onEvent('onPinterest')">
+             <i icon-large class="icon icon-pinterest"></i>
+           </button>
+          <button ion-button default-button block text-capitalize box-shadow (click)="onEvent('onLogin')">{{data.login}}</button>
+        </div>
+      </form>
+      </ion-col>
+      <!---End Share Section-->
+    </ion-row>
+  </ion-grid>
+</ion-content>
